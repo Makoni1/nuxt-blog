@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import type { Post } from '~/components/pages/blog/types'
 
-interface Props { post: Post }
+interface Props {
+  post: Post
+}
+
+interface Events {
+  (e: 'like'): void
+  (e: 'delete'): void
+}
+
 const props = defineProps<Props>()
-const emit = defineEmits<{ (e:'like'):void; (e:'delete'):void }>()
+const emit = defineEmits<Events>()
 </script>
 
 <template>

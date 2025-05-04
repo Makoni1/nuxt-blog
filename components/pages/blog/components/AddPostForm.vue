@@ -2,8 +2,10 @@
 import { ref, watch } from 'vue'
 import type { DraftPost } from '~/components/pages/blog/types'
 
-const emit = defineEmits<{ (e: 'submit', post: DraftPost): void }>()
-
+interface Events {
+  (e: 'submit', post: DraftPost): void
+}
+const emit = defineEmits<Events>()
 const form = ref<DraftPost>({
   title: '',
   description: '',
